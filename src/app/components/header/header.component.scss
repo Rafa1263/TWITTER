@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+$mainColor: #1976d2;
+
+.head {
+  background-color: #1976d2;
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  height: 5rem;
+  width: 100%;
+  overflow: hidden;
+
+  section {
+
+    justify-self: center;
+    height: 100%;
+    grid-column-start: 2;
+    grid-row-start: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    div {
+      background-color: black;
+      height: 0.5rem;
+      width: 2rem;
+      margin: 0.1rem;
+    }
+
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    justify-self: center;
+    grid-column-start: 5;
+    grid-row-start: 1;
+    width: 100%;
+    text-align: center;
+
+  }
+
+  .pMenu {
+    overflow: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: hsl(0, 0%, 50%, 0.5);
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    transform: translatex(3000px);
+    transition-duration: 1000ms;
+
+    .menu-capsule {
+
+      width: 70%;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      border-radius: 2.5%;
+      transition: all;
+      background-color: rgb(112, 112, 238);
+
+      .line {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        margin-top: 1rem;
+        height: 0.4rem;
+
+      }
+
+      .menu-title {
+        width: 100%;
+        height: 4rem;
+        background-color: rgb(112, 112, 238);
+        display: flex;
+        align-items: center;
+
+
+
+      }
+
+      .profile-menu {
+        margin-top: 2rem;
+        width: 100%;
+        height: 10rem;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(112, 112, 238);
+
+        .profile-img {
+
+
+          align-self: center;
+          height: 6rem;
+          width: 6rem;
+          border-radius: 5%;
+          background-color: white;
+          border: 1px solid
+        }
+      }
+
+      .menu-auth {
+        justify-content: space-between;
+        width: 100%;
+        height: 3rem;
+        display: flex;
+        background-color: rgb(112, 112, 238);
+
+
+
+
+        .register,
+        .login {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 2rem;
+          width: 4rem;
+          background-color: white;
+          border-radius: 0.2rem;
+        }
+
+
+
+      }
+
+      .menu-exit {
+        align-self: end;
+        display: grid;
+        height: 3rem;
+        width: 4rem;
+        border-radius: 10%;
+        opacity: 100%;
+        background-color: rgb(255, 0, 0);
+        grid-template-columns: 1fr;
+        overflow: hidden;
+
+
+        div {
+          opacity: 100%;
+          justify-self: center;
+          grid-column-start: 1;
+          grid-row-start: 1;
+        }
+
+        .n1 {
+
+          width: 0.8rem;
+          height: 3rem;
+          background-color: black;
+          transform: rotate(45deg);
+        }
+
+        .n2 {
+          width: 0.8rem;
+          height: 3rem;
+          transform: rotate(-45deg);
+          background-color: black;
+        }
+
+      }
+
+      .menu-routes {
+        height: 22rem;
+        background-color: hsl(0, 0%, 100%, 0.3);
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+
+
+        div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 2rem;
+          text-align: center;
+          background-color: hsl(0, 0%, 100%, 0.5);
+          cursor: pointer;
+          transition: all;
+          transition-duration: 1000ms;
+
+
+        }
+
+        div:hover {
+          background-color: $mainColor;
+          color: white;
+        }
+
+      }
+
+      .copyright {
+        font-size: 1.4rem;
+        font-weight: bold;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        height: 10rem;
+      }
+
+    }
+
+  }
+
+}

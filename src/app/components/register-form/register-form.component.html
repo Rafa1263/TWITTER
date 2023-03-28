@@ -1,0 +1,12 @@
+<form class="register-form">
+  <br>
+  <p>Create</p>
+  <p>Your Account</p>
+
+  <input type="text" id="username" class="input-custom" placeholder="Username" />
+
+  <input type="password" id="password" class="input-custom" placeholder="Password" />
+
+  <button class="input-submit" [ngClass]="!loaded ? 'disabled' : ''" type="button" (click)="register()"
+    [disabled]="!loaded">Register</button>
+</form>
