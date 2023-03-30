@@ -15,6 +15,7 @@ export class RegisterFormComponent {
     this.dt.getUsers().subscribe(() => {
       this.loaded = true
     })
+
   }
 
   register() {
@@ -29,14 +30,13 @@ export class RegisterFormComponent {
         token: token,
         id: 0,
       }
-      console.log(this.dt.usuarios)
       if (!this.dt.usuarios.find((us: User) => us.name === user.name)) {
         const max = this.dt.usuarios.reduce((maxIndex, user, currentIndex) => {
           return user.id > this.dt.usuarios[maxIndex].id ? currentIndex : maxIndex;
         }, 0);
         user.id = this.dt.usuarios[max].id + 1
 
-        document.cookie = `auth=${token};path=/`
+        this.dt.setCookie(token)
 
         this.dt.postUser(user).subscribe(() => {
           this.dt.getUsers().subscribe(() => { })

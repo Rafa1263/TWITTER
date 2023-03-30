@@ -3,11 +3,11 @@
   <p>Login To</p>
   <p>Your Account</p>
 
-  <input type="text" class="input-custom" placeholder="Username" />
+  <input type="text" id="username" class="input-custom" placeholder="Username" />
 
-  <input type="password" class="input-custom" placeholder="Password" />
+  <input type="password" id="password" class="input-custom" placeholder="Password" />
 
-  <span (click)="login()">Forgot your passowrd?</span>
+  <span>Forgot your passowrd?</span>
 
-  <input class="input-submit" type="submit" value="Login">
+  <input (click)="login()" class="input-submit" type="button" value="Login">
 </form>
