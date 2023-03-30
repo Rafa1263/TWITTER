@@ -19,6 +19,7 @@ export class RegisterFormComponent {
   }
 
   register() {
+    console.log(this.dt.user)
     let username = <HTMLInputElement>document.getElementById("username")
     let password = <HTMLInputElement>document.getElementById("password")
     let token = this.dt.getCookie()

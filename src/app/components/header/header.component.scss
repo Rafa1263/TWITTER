@@ -102,13 +102,18 @@ $mainColor: #1976d2;
 
         .profile-img {
 
-
+          overflow: hidden;
           align-self: center;
           height: 6rem;
           width: 6rem;
           border-radius: 5%;
           background-color: white;
-          border: 1px solid
+
+          border: 1px solid;
+
+          img {
+            width: 100%;
+          }
         }
       }
 

@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Post } from 'src/app/models/Post/post.models';
 import { User } from 'src/app/models/User/user.models';
-import { map, Observable } from 'rxjs';
-
+import { BehaviorSubject, map, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +12,7 @@ export class DataService {
 
   private posts: Post[] = []
   private users: User[] = []
+  public user: BehaviorSubject<User> = new BehaviorSubject({} as User)
 
   constructor(public http: HttpClient) {
 
@@ -27,31 +27,65 @@ export class DataService {
     }
     return result;
   }
+  getUserCookie(): String {
+    const token = document.cookie
+    let res = false
 
+    let temp = ""
+    for (let i = 0; i < token.length; i++) {
+
+      console.log(`INDEX IS ${i} Y EL VALOR ES ${token[i]}`)
+      if (token[i] == "a" && token[i + 1] == "u" && token[i + 2] == "t" && token[i + 3] == "h" && token[i + 4] == "=") {
+        i += 4
+        res = true
+      }
+      else if (res == true) {
+        temp += token[i]
+      }
+    }
+    return temp
+  }
+  getUserByCookie() {
+
+    let awaiting = true
+    this.getUsers().subscribe(() => {
+      awaiting = false
+      console.log(this.users)
+      // let index = this.users.find((us: User) => (us.token! == this.getUserCookie()))
+      // console.log(index)
+    })
+
+
+  }
   get publicaciones(): Post[] {
     return this.posts
   }
-
+  // get usuario(): User {
+  //   return this.user
+  // }
+  // set setUsuario(user: User) {
+  //   this.user = user
+  // }
   get usuarios(): User[] {
     return this.users
   }
 
   public getPosts() {
-    this.http.get<Post[]>(`${this.CONFIG_URL}/posts.json`)
+    this.http.get<Post[]>(`${this.CONFIG_URL} / posts.json`)
       .subscribe((posts: Post[]) => {
         this.posts = posts
       })
   }
 
   public getUsers(): Observable<void> {
-    return this.http.get<User[]>(`${this.CONFIG_URL}/users.json`)
+    return this.http.get<User[]>(`${this.CONFIG_URL} / users.json`)
       .pipe(map(((users: User[]) => {
         this.users = users
       })))
   }
 
   public setCookie(token: string): void {
-    document.cookie = `auth=${token};path=/`
+    document.cookie = `auth = ${token}; path = /`
 
   }
 

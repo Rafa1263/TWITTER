@@ -13,6 +13,8 @@ import { LoginViewComponent } from './pages/login-view/login-view.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { RegisterViewComponent } from './pages/register-view/register-view.component';
+import { CreatePostComponent } from './components/create-post/create-post.component';
+import { CreateViewComponent } from './pages/create-view/create-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,9 @@ import { RegisterViewComponent } from './pages/register-view/register-view.compo
     NotFoundComponent,
     ShowViewComponent,
     LoginViewComponent,
-    RegisterViewComponent
+    RegisterViewComponent,
+    CreatePostComponent,
+    CreateViewComponent
 
 
 

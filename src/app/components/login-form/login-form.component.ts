@@ -32,6 +32,11 @@ export class LoginFormComponent {
         this.user.token = token
         this.dt.putUser(this.user, userIndex)
         this.dt.setCookie(token)
+        this.dt.user.next(this.user)
+        console.log(this.dt.user)
+
+
+
       }
     }
   }
