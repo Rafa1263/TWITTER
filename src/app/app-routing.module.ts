@@ -25,7 +25,7 @@ const routes: Routes = [
     component: CreateViewComponent
   },
   {
-    path: '', redirectTo: "/login",
+    path: '', redirectTo: "/show",
     pathMatch: 'full'
   },
   {

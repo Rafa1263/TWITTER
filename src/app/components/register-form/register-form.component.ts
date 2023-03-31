@@ -12,10 +12,14 @@ export class RegisterFormComponent {
   public loaded = false
 
   constructor(private readonly dt: DataService, private router: Router) {
-    this.dt.getUsers().subscribe(() => {
-      this.loaded = true
-    })
-
+    if (dt.user.value) {
+      this.router.navigate([''])
+    }
+    else {
+      this.dt.getUsers().subscribe(() => {
+        this.loaded = true
+      })
+    }
   }
 
   register() {

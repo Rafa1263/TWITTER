@@ -1,15 +1,19 @@
-<!-- <div *ngFor="let post of posts" class="comment">
-  <div class="user-content">
-    <div class="comment-user-img"><img *ngIf="post.photo!='default'" class="default-photo" [src]="post.photo">
-      <img *ngIf="post.photo=='default'" class="default-photo"
-        src="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg">
+<div *ngIf="loader == true">
+  <div *ngFor="let post of posts" class="comment">
+    <div class="user-content">
+      <div class="comment-user-img"><img *ngIf="users[post.author_id - 1].photo != 'default'" class="default-photo"
+          [src]="users[post.author_id - 1].photo">
+        <img *ngIf="users[post.author_id - 1].photo=='default' || !users[post.author_id].photo  " class="default-photo"
+          src="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg">
+      </div>
+      <p>{{post.author}}</p>
     </div>
-    <p>{{post.name}}</p>
+    <div class="line"></div>
+    <div class="comment-content">
+      <p class="title">{{post.title}}</p>
+
+      <p class="content">{{post.content}}</p>
+    </div>
+
   </div>
-  <div class="line"></div>
-  <div class="comment-content">
-    <p class="title">{{post.title}}</p>
-    <p class="content">{{post.content}}</p>
-  </div>
-  <button (click)="test(post)">CLICK AQUÍ</button>
-</div> -->
+</div>

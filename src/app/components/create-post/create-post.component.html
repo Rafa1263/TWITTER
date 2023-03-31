@@ -4,12 +4,12 @@
     <p>Create a Post</p>
     <div>
       <label> Titulo
-        <input type="text" placeholder="Title">
+        <input type="text" id="title" placeholder="Title">
       </label>
       <label>Contenido
-        <input type="text" placeholder="Content">
+        <input type="text" id="content" placeholder="Content">
       </label>
     </div>
-    <button>POST!</button>
+    <input type="button" class="send" (click)="createPost()" value="POST!">
   </form>
 </section>

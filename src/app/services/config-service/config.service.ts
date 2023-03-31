@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Post } from 'src/app/models/Post/post.models';
 import { User } from 'src/app/models/User/user.models';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable, retry } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -34,7 +34,6 @@ export class DataService {
     let temp = ""
     for (let i = 0; i < token.length; i++) {
 
-      console.log(`INDEX IS ${i} Y EL VALOR ES ${token[i]}`)
       if (token[i] == "a" && token[i + 1] == "u" && token[i + 2] == "t" && token[i + 3] == "h" && token[i + 4] == "=") {
         i += 4
         res = true
@@ -47,15 +46,11 @@ export class DataService {
   }
   getUserByCookie() {
 
-    let awaiting = true
-    this.getUsers().subscribe(() => {
-      awaiting = false
-      console.log(this.users)
-      // let index = this.users.find((us: User) => (us.token! == this.getUserCookie()))
-      // console.log(index)
-    })
 
-
+    let tempUser = this.users.find((us: User) => {
+      return us.token! == this.getUserCookie();
+    });
+    this.user.next(tempUser!)
   }
   get publicaciones(): Post[] {
     return this.posts
@@ -70,15 +65,16 @@ export class DataService {
     return this.users
   }
 
-  public getPosts() {
-    this.http.get<Post[]>(`${this.CONFIG_URL} / posts.json`)
-      .subscribe((posts: Post[]) => {
-        this.posts = posts
-      })
+
+  public getPosts(): Observable<void> {
+    return this.http.get<Post[]>(`${this.CONFIG_URL}/posts.json`).pipe(map(((posts: Post[]) => {
+      this.posts = posts
+    })))
+
   }
 
   public getUsers(): Observable<void> {
-    return this.http.get<User[]>(`${this.CONFIG_URL} / users.json`)
+    return this.http.get<User[]>(`${this.CONFIG_URL}/users.json`)
       .pipe(map(((users: User[]) => {
         this.users = users
       })))
@@ -91,6 +87,9 @@ export class DataService {
 
   public postUser(user: User): Observable<User> {
     return this.http.put<User>(`${this.CONFIG_URL}/users/${this.users.length}.json`, user)
+  }
+  public postPost(post: Post): Observable<User> {
+    return this.http.put<User>(`${this.CONFIG_URL}/posts/${this.posts.length}.json`, post)
   }
 
   public putUser(user: User, index: number): void {

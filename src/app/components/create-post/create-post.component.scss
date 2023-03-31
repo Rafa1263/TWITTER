@@ -30,7 +30,7 @@
       }
     }
 
-    button {
+    .send {
       justify-self: flex-end !important;
       transition: all 1000ms;
       width: 100%;
@@ -39,7 +39,7 @@
 
     }
 
-    button:hover {
+    .send:hover {
       background-color: aqua;
       color: black;
     }

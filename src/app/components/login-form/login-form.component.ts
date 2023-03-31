@@ -14,10 +14,16 @@ export class LoginFormComponent {
   private user: User = {} as User
   public loaded = false
 
+
   constructor(private readonly dt: DataService, private router: Router) {
-    this.dt.getUsers().subscribe(() => {
-      this.loaded = true
-    })
+    if (dt.user.value) {
+      this.router.navigate(['show'])
+    }
+    else {
+      this.dt.getUsers().subscribe(() => {
+        this.loaded = true
+      })
+    }
 
   }
 
@@ -33,12 +39,16 @@ export class LoginFormComponent {
         this.dt.putUser(this.user, userIndex)
         this.dt.setCookie(token)
         this.dt.user.next(this.user)
-        console.log(this.dt.user)
+        window.location.reload()
+
+
+
 
 
 
       }
     }
   }
+
 
 }
