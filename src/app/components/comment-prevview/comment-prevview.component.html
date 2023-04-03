@@ -1,19 +1,30 @@
 <div *ngIf="loader == true">
-  <div *ngFor="let post of posts" class="comment">
-    <div class="user-content">
-      <div class="comment-user-img"><img *ngIf="users[post.author_id - 1].photo != 'default'" class="default-photo"
-          [src]="users[post.author_id - 1].photo">
-        <img *ngIf="users[post.author_id - 1].photo=='default' || !users[post.author_id].photo  " class="default-photo"
-          src="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg">
+  <div *ngFor="let post of posts" class="container-post">
+    <div class="posts-feed">
+      <div class="first-part">
+        <div class="name_photo">
+          <div class="photo_post"><img *ngIf="users[post.author_id - 1].photo != 'default'" class="default-photo"
+              [src]="users[post.author_id - 1].photo">
+            <img *ngIf="users[post.author_id - 1].photo=='default' || !users[post.author_id].photo  "
+              class="default-photo"
+              src="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg">
+          </div>
+          <div class="photo_name">{{post.author}}</div>
+        </div>
+        <div class="date">15:35</div>
       </div>
-      <p>{{post.author}}</p>
+      <div class="second-part">
+        <p class="title_post">post.title</p>
+        <p class="content_post">{{post.content}}</p>
+      </div>
+      <div class="buttons_post">
+        <div class="line1"></div>
+        <div class="line2">
+          <input type="button" value="❤️ 105">
+          <div class="line3"></div>
+          <input type="button" value="Follow">
+        </div>
+      </div>
     </div>
-    <div class="line"></div>
-    <div class="comment-content">
-      <p class="title">{{post.title}}</p>
-
-      <p class="content">{{post.content}}</p>
-    </div>
-
+    <br>
   </div>
-</div>

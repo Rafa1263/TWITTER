@@ -6,10 +6,10 @@
 $mainColor: #20142c;
 
 .head {
-  background-color: $mainColor;
+  background-color: #20142cef;
   display: grid;
   color: white;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   height: 5rem;
   width: 100%;
   overflow: hidden;
@@ -41,7 +41,7 @@ $mainColor: #20142c;
     align-items: center;
     font-size: 2rem;
     justify-self: center;
-    grid-column-start: 6;
+    grid-column-start: 7;
     grid-row-start: 1;
     width: 100%;
     text-align: center;

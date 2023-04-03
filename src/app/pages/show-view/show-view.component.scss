@@ -4,7 +4,9 @@
 }
 
 .content-englober {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #20142c;
+  display: grid;
+  height: max-content;
+  grid-template-columns: 1fr;
+
 }
