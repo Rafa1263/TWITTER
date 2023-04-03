@@ -3,12 +3,12 @@
   padding: 0;
 }
 
-$mainColor: #1976d2;
+$mainColor: #20142c;
 
 .head {
-  background-color: #1976d2;
+  background-color: $mainColor;
   display: grid;
-
+  color: white;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   height: 5rem;
   width: 100%;
@@ -28,10 +28,10 @@ $mainColor: #1976d2;
     align-content: center;
 
     div {
-      background-color: black;
-      height: 0.5rem;
-      width: 2rem;
-      margin: 0.1rem;
+      background-color: white;
+      height: 0.3rem;
+      width: 3rem;
+      margin: 0.2rem;
     }
 
   }
@@ -41,7 +41,7 @@ $mainColor: #1976d2;
     align-items: center;
     font-size: 2rem;
     justify-self: center;
-    grid-column-start: 5;
+    grid-column-start: 6;
     grid-row-start: 1;
     width: 100%;
     text-align: center;

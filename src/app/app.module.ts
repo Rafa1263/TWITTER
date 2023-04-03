@@ -15,6 +15,8 @@ import { RegisterFormComponent } from './components/register-form/register-form.
 import { RegisterViewComponent } from './pages/register-view/register-view.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import { CreateViewComponent } from './pages/create-view/create-view.component';
+import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
+import { ProfileComponent } from './components/profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { CreateViewComponent } from './pages/create-view/create-view.component';
     LoginViewComponent,
     RegisterViewComponent,
     CreatePostComponent,
-    CreateViewComponent
+    CreateViewComponent,
+    ProfileViewComponent,
+    ProfileComponent
 
 
 
@@ -37,7 +41,8 @@ import { CreateViewComponent } from './pages/create-view/create-view.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+
 
   ],
   providers: [],

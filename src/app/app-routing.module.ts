@@ -6,6 +6,7 @@ import { ShowViewComponent } from './pages/show-view/show-view.component';
 import { LoginViewComponent } from './pages/login-view/login-view.component';
 import { RegisterViewComponent } from './pages/register-view/register-view.component';
 import { CreateViewComponent } from './pages/create-view/create-view.component';
+import { ProfileViewComponent } from 'src/app/pages/profile-view/profile-view.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginViewComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileViewComponent
   },
   {
     path: 'register',
