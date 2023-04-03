@@ -158,15 +158,24 @@ section {
       .buttons_post {
         width: 100%;
         height: 100%;
-        background: hsl(0, 0%, 100%, 0.2);
 
         input {
-          height: 4rem;
+          font-size: 1.5rem;
+          height: 3rem;
           width: 100%;
-          color: white;
+          color: hsl(0, 0%, 100%, 0.7);
           background: transparent;
           border: none;
+          transition: all 1000ms;
+
+          &:hover {
+
+            color: white;
+
+          }
+
         }
+
 
         .line1 {
           height: 1px;
