@@ -132,6 +132,11 @@ section {
             margin-left: 1rem;
           }
         }
+
+        .date {
+          font-size: 1.2rem;
+          color: hsl(0, 0%, 100%, 0.8);
+        }
       }
 
       .second-part {
@@ -158,6 +163,7 @@ section {
       .buttons_post {
         width: 100%;
         height: 100%;
+        margin-top: 1rem;
 
         input {
           font-size: 1.5rem;
@@ -178,7 +184,7 @@ section {
 
 
         .line1 {
-          height: 1px;
+          height: 0.1px;
           width: 100%;
           background-color: white;
         }
