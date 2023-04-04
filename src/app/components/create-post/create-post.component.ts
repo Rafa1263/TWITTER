@@ -37,8 +37,18 @@ export class CreatePostComponent implements OnInit {
 
   addTag() {
     let a = <HTMLInputElement>document.getElementById("tag")!
-
     this.tags.push(a.value)
+    this.resetValue()
+
+  }
+  resetValue() {
+    (document.getElementById("tag") as HTMLInputElement).value = "";
+  }
+  deleteTag(tag: string) {
+    const index = this.tags.indexOf(tag);
+    if (index > -1) {
+      this.tags.splice(index, 1);
+    }
   }
 
   createPost() {

@@ -18,19 +18,26 @@
         <input (click)="setColor('b2','b1','c1')" class="t3" type="text" id="title">
         <div class="t4" id="b2"></div>
       </div>
-      <br>
+
       <div class="second-input">
         <p class="t1">📋</p>
         <p class="t2"> Content</p>
         <input (click)="setColor('b1','b2','c1')" class="t3" type="text" id="content">
         <div class="t4" id="b1"></div>
       </div>
+
       <div class="third-input">
         <p class="t1">#️</p>
         <p class="t2"> Tags</p>
         <input (click)="setColor('c1','b1','b2')" class="t3" type="text" id="tag">
-        <input class="addTag" type="button" id="addTag" value="ADD">
+        <input (click)="addTag()" class="addTag" type="button" id="addTag" value="ADD">
         <div class="t4" id="c1"></div>
+      </div>
+
+      <div class="tag-global-container">
+        <div *ngFor="let tag of tags" (click)="deleteTag(tag)" class="container-tag">
+          <p class="content-tag">{{tag}}</p>
+        </div>
       </div>
 
     </div>

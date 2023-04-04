@@ -137,9 +137,9 @@ form {
       padding: 0.3rem;
       display: none;
       cursor: pointer;
-      background-color: rgba(255, 255, 255, 1);
-      border: none;
-      color: black;
+      background-color: #20142c4f;
+      border: solid 1px white;
+      color: white;
       width: 100%;
       outline: none;
       border-radius: 7px;
@@ -148,11 +148,37 @@ form {
 
   }
 
+  .tag-global-container {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .container-tag {
+    display: flex;
+    flex-direction: column;
+    padding: 0.2rem;
+    min-width: 5rem;
+    max-width: max-content;
+    height: max-content;
+    border: solid 1px white;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    justify-self: center;
+
+    &:hover {
+      background-color: red;
+    }
+
+  }
+
 }
 
 .send {
   cursor: pointer;
-  margin-top: 5rem;
+  margin-top: 3rem;
   height: 4rem;
   border-radius: 10px;
   background-color: #a18cb71b;
