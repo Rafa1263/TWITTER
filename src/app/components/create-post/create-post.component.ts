@@ -11,6 +11,7 @@ import { DataService } from 'src/app/services/config-service/config.service';
 export class CreatePostComponent implements OnInit {
   canCreate = false
   user: User = {} as User
+  tags: string[] = []
   constructor(private readonly dt: DataService, private readonly router: Router) {
     if (!this.dt.user.value) {
       this.router.navigate(['login'])
@@ -19,6 +20,25 @@ export class CreatePostComponent implements OnInit {
       this.canCreate = true
     }
 
+  }
+  setColor(a: string, b: string, c: string) {
+    document.getElementById(c)!.style.backgroundColor = "rgba(255, 255, 255, 0.541)"
+    document.getElementById(b)!.style.backgroundColor = "rgba(255, 255, 255, 0.541)"
+    document.getElementById(a)!.style.backgroundColor = "white"
+
+    if (a == "c1") {
+      document.getElementById("addTag")!.style.display = "inline"
+    }
+    else {
+      document.getElementById("addTag")!.style.display = "none"
+
+    }
+  }
+
+  addTag() {
+    let a = <HTMLInputElement>document.getElementById("tag")!
+
+    this.tags.push(a.value)
   }
 
   createPost() {

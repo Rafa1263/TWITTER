@@ -1,9 +1,10 @@
-.content-englober {
+$mainColor: #20142c;
 
+.content-englober {
+  background-color: $mainColor;
   width: 100%;
   height: 75%;
   display: flex;
   justify-items: center;
-
   align-items: center;
 }

@@ -32,6 +32,7 @@ export class RegisterFormComponent {
       const user = {
         name: username.value,
         password: password.value,
+        photo: "default",
         token: token,
         id: 0,
       }

@@ -1,14 +1,38 @@
 <section class="post-form">
 
   <form>
-    <p>Create a Post</p>
-    <div>
-      <label> Titulo
-        <input type="text" id="title" placeholder="Title">
-      </label>
-      <label>Contenido
-        <input type="text" id="content" placeholder="Content">
-      </label>
+    <div class="info-section">
+      <p class="info-section-title">Create a Post</p>
+      <p class="info-section-subtitle">Lorem ipsum dolore satam</p>
+    </div>
+    <div class="photo-section">
+      <div>
+        <div>📷</div>
+      </div>
+      <p>Add a Photo to your post</p>
+    </div>
+    <div class="input-section">
+      <div class="first-input">
+        <p class="t1">🖊️</p>
+        <p class="t2"> Title</p>
+        <input (click)="setColor('b2','b1','c1')" class="t3" type="text" id="title">
+        <div class="t4" id="b2"></div>
+      </div>
+      <br>
+      <div class="second-input">
+        <p class="t1">📋</p>
+        <p class="t2"> Content</p>
+        <input (click)="setColor('b1','b2','c1')" class="t3" type="text" id="content">
+        <div class="t4" id="b1"></div>
+      </div>
+      <div class="third-input">
+        <p class="t1">#️</p>
+        <p class="t2"> Tags</p>
+        <input (click)="setColor('c1','b1','b2')" class="t3" type="text" id="tag">
+        <input class="addTag" type="button" id="addTag" value="ADD">
+        <div class="t4" id="c1"></div>
+      </div>
+
     </div>
     <input type="button" class="send" (click)="createPost()" value="POST!">
   </form>
