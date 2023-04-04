@@ -16,7 +16,7 @@
       <div class="second-part">
         <p class="title_post">{{post.title}}</p>
         <p class="content_post">{{post.content}}</p>
-      </div>
+      </div><img *ngIf="post.photo != 'none' " style="width: 100%;" src={{post.photo}}>
       <div class="buttons_post">
         <div class="line1"></div>
         <div class="line2">
