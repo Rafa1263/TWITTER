@@ -86,10 +86,17 @@ export class CreatePostComponent implements OnInit {
             tags: this.tags,
             id: 0
           }
-          const max = this.dt.publicaciones.reduce((maxIndex, post, currentIndex) => {
-            return post.id > this.dt.publicaciones[maxIndex].id ? currentIndex : maxIndex;
-          }, 0);
-          post.id = this.dt.publicaciones[max].id + 1
+
+          if (this.dt.publicaciones != null) {
+
+            const max = this.dt.publicaciones.reduce((maxIndex, post, currentIndex) => {
+              return post.id > this.dt.publicaciones[maxIndex].id ? currentIndex : maxIndex;
+            }, 0);
+            post.id = this.dt.publicaciones[max].id + 1
+          }
+          else {
+            post.id = 1
+          }
           this.canCreate = false
           this.dt.postPost(post).subscribe(() => {
             console.log("POST DONE!")

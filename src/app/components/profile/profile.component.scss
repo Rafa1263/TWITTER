@@ -8,7 +8,6 @@ section {
   background-color: $mainColor;
 
   .sec {
-
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -28,9 +27,7 @@ section {
         height: max-content;
         cursor: pointer;
       }
-
     }
-
   }
 
   .img {
@@ -50,7 +47,6 @@ section {
 
   .info-section {
     width: 100%;
-
   }
 
   .first-section {
@@ -79,13 +75,9 @@ section {
     td {
       color: hsl(0, 0%, 100%, 0.6);
     }
-
-
-
   }
 
   .posts {
-
     width: 90%;
     min-height: fit-content;
     display: flex;
@@ -97,7 +89,6 @@ section {
     margin-top: 1rem;
     background-color: hsl(0, 0%, 100%, 0.04);
 
-
     .container-post {
       color: hsl(0, 0%, 100%, 0.6);
       font-size: 1.4rem;
@@ -105,8 +96,6 @@ section {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-
-
     }
 
     .posts-feed {
@@ -123,7 +112,6 @@ section {
       align-items: center;
       color: white;
 
-
       .first-part {
         margin-top: 0.4rem;
         width: 90%;
@@ -133,8 +121,7 @@ section {
         .name_photo {
           display: flex;
           align-items: center;
-          width: 40%;
-
+          width: 80%;
 
           .photo_post {
             background-color: black;
@@ -161,12 +148,10 @@ section {
         display: flex;
         flex-direction: column;
 
-
         .content_post {
           color: hsl(0, 0%, 100%, 0.6);
           margin-top: 1.5rem;
         }
-
 
         .title_post {
           color: hsl(0, 0%, 100%, 0.8);
@@ -192,13 +177,11 @@ section {
           transition: all 1000ms;
 
           &:hover {
-
             color: white;
 
           }
 
         }
-
 
         .line1 {
           height: 0.1px;
@@ -220,6 +203,5 @@ section {
 
       }
     }
-
   }
 }

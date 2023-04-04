@@ -86,10 +86,19 @@ export class DataService {
   }
 
   public postUser(user: User): Observable<User> {
+    if (this.users == null) {
+      return this.http.put<User>(`${this.CONFIG_URL}/users/${0}.json`, user)
+    }
     return this.http.put<User>(`${this.CONFIG_URL}/users/${this.users.length}.json`, user)
+
   }
   public postPost(post: Post): Observable<User> {
+    if (this.posts == null) {
+      return this.http.put<User>(`${this.CONFIG_URL}/posts/0.json`, post)
+
+    }
     return this.http.put<User>(`${this.CONFIG_URL}/posts/${this.posts.length}.json`, post)
+
   }
 
   public putUser(user: User, index: number): void {
