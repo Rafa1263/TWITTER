@@ -12,6 +12,8 @@ export class CreatePostComponent implements OnInit {
   canCreate = false
   user: User = {} as User
   tags: string[] = []
+  imageString: string = "none"
+
   constructor(private readonly dt: DataService, private readonly router: Router) {
     if (!this.dt.user.value) {
       this.router.navigate(['login'])
@@ -34,13 +36,30 @@ export class CreatePostComponent implements OnInit {
 
     }
   }
+  updatePhoto(event: Event): void {
+    // @ts-ignore
+    const file = (event.target as HTMLInputElement).files[0];
 
-  addTag() {
-    let a = <HTMLInputElement>document.getElementById("tag")!
-    this.tags.push(a.value)
-    this.resetValue()
+    if (!file) {
+      return;
+    }
 
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.imageString = reader.result as string;
+
+    };
   }
+  addTag() {
+    let a = <HTMLInputElement>document.getElementById("tag")!;
+    const tagValue = a.value.trim();
+    if (tagValue && !this.tags.includes(tagValue)) {
+      this.tags.push(tagValue);
+    }
+    this.resetValue();
+  }
+
   resetValue() {
     (document.getElementById("tag") as HTMLInputElement).value = "";
   }
@@ -63,14 +82,18 @@ export class CreatePostComponent implements OnInit {
             author_id: this.dt.user.value.id,
             title: title.value,
             content: content.value,
+            photo: this.imageString,
+            tags: this.tags,
             id: 0
           }
           const max = this.dt.publicaciones.reduce((maxIndex, post, currentIndex) => {
             return post.id > this.dt.publicaciones[maxIndex].id ? currentIndex : maxIndex;
           }, 0);
           post.id = this.dt.publicaciones[max].id + 1
+          this.canCreate = false
           this.dt.postPost(post).subscribe(() => {
             console.log("POST DONE!")
+            this.canCreate = true
           })
         })
 

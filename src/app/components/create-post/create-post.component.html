@@ -6,8 +6,10 @@
       <p class="info-section-subtitle">Lorem ipsum dolore satam</p>
     </div>
     <div class="photo-section">
+
       <div>
-        <div>📷</div>
+        <img *ngIf="imageString != 'none'" [src]="imageString">
+        <div *ngIf="imageString == 'none'"><span>📷</span><input type="file" (change)="updatePhoto($event)"></div>
       </div>
       <p>Add a Photo to your post</p>
     </div>

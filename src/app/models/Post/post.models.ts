@@ -3,6 +3,8 @@ export interface Post {
   author_id: number;
   title: string;
   content: string;
+  photo: string;
+  tags: string[];
   id: number;
 
 }
